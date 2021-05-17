@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -19,15 +21,13 @@ public class AuthorizationController {
     AuthorizationService service;
 
     @GetMapping("/authorize")
-    public ResponseEntity<?> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {
-
-        try {
-            return new ResponseEntity<>(service.getAuthorities(user, password), HttpStatus.OK);
-        } catch (InvalidCredentials ex) {
-            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
-        } catch (UnauthorizedUser ex) {
-            return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
-        }
-
+    public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {
+            return service.getAuthorities(user, password);
     }
+
+    /*@GetMapping("/error")
+    public String getError(){
+        return "ERROR!";
+    }
+*/
 }
