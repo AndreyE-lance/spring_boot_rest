@@ -2,8 +2,10 @@ package com.elantsev.netology.spring_boot_rest.model;
 
 import com.elantsev.netology.spring_boot_rest.enums.Authorities;
 import org.springframework.validation.annotation.Validated;
+
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+
 @Validated
 public class User {
     @NotBlank(message = "User field must be filled")
