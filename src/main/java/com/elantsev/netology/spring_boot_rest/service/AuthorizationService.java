@@ -39,6 +39,13 @@ public class AuthorizationService {
     }
 
     public List<Authorities> getAuthorities(User user) {
-        return null;
+        if (isEmpty(user.getUserName()) || isEmpty(user.getPassword())) {
+            throw new InvalidCredentials("User name or password is empty");
+        }
+        List<Authorities> userAuthorities = userRepository.getUserAuthorities(user.getUserName(), user.getPassword());
+        if (isEmpty(userAuthorities)) {
+            throw new UnauthorizedUser("Unknown user " + user);
+        }
+        return userAuthorities;
     }
 }
