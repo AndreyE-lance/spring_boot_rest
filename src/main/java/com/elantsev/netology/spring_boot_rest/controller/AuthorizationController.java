@@ -22,9 +22,9 @@ public class AuthorizationController {
         return service.getAuthorities(user, password);
     }
 
-    /*@GetMapping("/error")
+    @GetMapping("/error")
     public String getError(){
         return "ERROR!";
     }
-*/
+
 }
