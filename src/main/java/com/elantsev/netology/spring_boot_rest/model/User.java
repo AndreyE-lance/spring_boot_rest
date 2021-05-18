@@ -3,7 +3,6 @@ package com.elantsev.netology.spring_boot_rest.model;
 import com.elantsev.netology.spring_boot_rest.enums.Authorities;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.util.List;
 @Validated
 public class User {
