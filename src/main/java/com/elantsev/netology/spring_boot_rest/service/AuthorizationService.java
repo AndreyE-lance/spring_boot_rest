@@ -3,12 +3,14 @@ package com.elantsev.netology.spring_boot_rest.service;
 import com.elantsev.netology.spring_boot_rest.enums.Authorities;
 import com.elantsev.netology.spring_boot_rest.exceptions.InvalidCredentials;
 import com.elantsev.netology.spring_boot_rest.exceptions.UnauthorizedUser;
+import com.elantsev.netology.spring_boot_rest.model.User;
 import com.elantsev.netology.spring_boot_rest.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Component
+@Service
 public class AuthorizationService {
     @Autowired
     UserRepository userRepository;
@@ -34,5 +36,9 @@ public class AuthorizationService {
 
     private boolean isEmpty(List<?> str) {
         return str == null || str.isEmpty();
+    }
+
+    public List<Authorities> getAuthorities(User user) {
+        return null;
     }
 }
