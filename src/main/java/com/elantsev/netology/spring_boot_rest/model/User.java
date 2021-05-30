@@ -1,21 +1,26 @@
 package com.elantsev.netology.spring_boot_rest.model;
 
 import com.elantsev.netology.spring_boot_rest.enums.Authorities;
-import org.springframework.context.annotation.Bean;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+@Validated
 public class User {
+    @NotBlank(message = "User field must be filled")
     private String userName;
+
+    @NotBlank(message = "Password field must be filled")
     private String password;
     private List<Authorities> permissions;
 
-    @Bean
-    public User getUser(String userName, String password, List<Authorities> permissions) {
+    public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
-        this.permissions = permissions;
-        return this;
+    }
+
+    public User() {
     }
 
     public String getUserName() {
