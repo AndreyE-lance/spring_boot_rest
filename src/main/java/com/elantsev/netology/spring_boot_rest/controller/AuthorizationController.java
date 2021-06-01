@@ -27,4 +27,8 @@ public class AuthorizationController {
         return "ERROR!";
     }
 */
+    @GetMapping("/")
+    public String getError(){
+        return "EMPTY!";
+    }
 }

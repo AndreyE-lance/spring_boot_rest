@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 services:
   spring_boot:
@@ -6,4 +6,4 @@ services:
       ./
     image: spring_boot:latest
     ports:
-      - 8080
+      - 8082
