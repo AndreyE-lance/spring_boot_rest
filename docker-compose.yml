@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  spring_boot:
+    build:
+      ./
+    image: spring_boot:latest
+    ports:
+      - 8082
